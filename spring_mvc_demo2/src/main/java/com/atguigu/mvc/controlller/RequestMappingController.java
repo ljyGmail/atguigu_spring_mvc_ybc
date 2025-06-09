@@ -18,4 +18,9 @@ public class RequestMappingController {
     public String testGetMapping() {
         return "success";
     }
+
+    @RequestMapping(value = "testPut", method = RequestMethod.PUT)
+    public String testPut() {
+        return "success";
+    }
 }
