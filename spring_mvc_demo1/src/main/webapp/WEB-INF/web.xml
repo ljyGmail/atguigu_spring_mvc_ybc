@@ -4,15 +4,20 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <!--
-    默认配置方式: 采用此配置方式，SpringMVC的配置文件默认位于WEB-INF下，默认名称为<servlet-name>-servlet.xml。
-    例如: 以下配置所对应的SpingMVC的配置文件位于WEB-INF下，文件名为spingMVC-servlet.xml。
-    但是这种方式的缺点在于使用Maven的工程，配置文件一般放在resources目录下统一管理，目前这种方式打破了这种约定。
+    扩展配置方式: 可通过init-param标签设置SpingMVC配置文件的位置和名称，通过load-on-startup标签设置SpingMVC前端控制器DispatcherServlet的初始化时间。
     -->
 
     <!-- 配置spingMVC的前端控制器，对浏览器发送的请求进行统一处理 -->
     <servlet>
         <servlet-name>springMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- 配置SpringMVC配置文件的位置和名称 -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springMVC.xml</param-value>
+        </init-param>
+        <!-- 将前端控制器DispatcherServlet的初始化时间提前到服务器启动时 -->
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>springMVC</servlet-name>
