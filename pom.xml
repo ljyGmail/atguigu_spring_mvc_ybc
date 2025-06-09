@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring_mvc_demo1</module>
+        <module>spring_mvc_demo2</module>
     </modules>
 
     <properties>
