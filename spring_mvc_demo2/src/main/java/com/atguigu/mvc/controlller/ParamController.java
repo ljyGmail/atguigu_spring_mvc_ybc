@@ -2,6 +2,7 @@ package com.atguigu.mvc.controlller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
@@ -30,7 +31,9 @@ public class ParamController {
     @RequestMapping("/testParam")
     // 若请求参数中出现多个同名的请求参数，可以在控制器方法的形参位置设置字符串类型或字符串数组接收此请求参数
     // 若使用字符串类型的形参，最终结果为请求参数的每一个值之间使用逗号进行拼接
-    public String testParam(String username, String password, String[] hobby) {
+    public String testParam(@RequestParam(value = "user_name", required = false, defaultValue = "SpringBoot") String username,
+                            String password,
+                            String[] hobby) {
         System.out.println("Controller param: username: " + username + ", password: " + password + ", hobby: " + Arrays.toString(hobby));
         return "success";
     }
