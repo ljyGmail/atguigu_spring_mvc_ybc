@@ -31,4 +31,11 @@ public class RequestMappingController {
     public String testParamsAndHeaders() {
         return "success";
     }
+
+    // @RequestMapping("/a?a/testAnt")
+    // @RequestMapping("/a*a/testAnt")
+    @RequestMapping("/**/testAnt")
+    public String testAnt() {
+        return "success";
+    }
 }
