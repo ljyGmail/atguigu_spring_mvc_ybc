@@ -26,7 +26,8 @@ public class RequestMappingController {
     }
 
     @RequestMapping(value = "/testParamsAndHeaders",
-            params = {"username", "password!=123456"})
+            params = {"username", "password!=123456"},
+            headers = {"Host=localhost:8080"})
     public String testParamsAndHeaders() {
         return "success";
     }
