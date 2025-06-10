@@ -17,5 +17,6 @@
 <form th:action="@{/testPut}" method="put">
     <input type="submit" value="测试form表单是否能够发送put或delete请求方式">
 </form>
+<a th:href="@{/testParamsAndHeaders(username='admin',password=123456)}">测试GetMapping注解的params属性--&gt;/testParamsAndHeaders</a><br>
 </body>
 </html>

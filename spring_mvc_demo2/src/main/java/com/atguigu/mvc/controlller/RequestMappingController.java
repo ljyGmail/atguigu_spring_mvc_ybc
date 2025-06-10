@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 // @RequestMapping("/hello")
 public class RequestMappingController {
 
-    @RequestMapping(value = {"/testRequestMapping", "/test"}, method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = {"/testRequestMapping", "/test"},
+            method = {RequestMethod.GET, RequestMethod.POST})
     public String success() {
         return "success";
     }
@@ -21,6 +22,12 @@ public class RequestMappingController {
 
     @RequestMapping(value = "testPut", method = RequestMethod.PUT)
     public String testPut() {
+        return "success";
+    }
+
+    @RequestMapping(value = "/testParamsAndHeaders",
+            params = {"username", "password!=123456"})
+    public String testParamsAndHeaders() {
         return "success";
     }
 }
