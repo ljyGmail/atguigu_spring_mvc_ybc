@@ -1,6 +1,7 @@
 package com.atguigu.mvc.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,5 +34,11 @@ public class ScopeController {
         // 设置视图名称
         mav.setViewName("success");
         return mav;
+    }
+
+    @RequestMapping("/testModel")
+    public String testModel(Model model) {
+        model.addAttribute("testRequestScope", "hello, Model");
+        return "success";
     }
 }
