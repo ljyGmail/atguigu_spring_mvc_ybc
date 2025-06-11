@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * ClassName: ScopeController
@@ -39,6 +40,12 @@ public class ScopeController {
     @RequestMapping("/testModel")
     public String testModel(Model model) {
         model.addAttribute("testRequestScope", "hello, Model");
+        return "success";
+    }
+
+    @RequestMapping("/testMap")
+    public String testMap(Map<String,Object> map){
+        map.put("testRequestScope","hello, Map");
         return "success";
     }
 }
