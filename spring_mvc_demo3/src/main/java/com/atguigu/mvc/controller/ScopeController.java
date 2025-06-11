@@ -2,6 +2,7 @@ package com.atguigu.mvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,5 +23,15 @@ public class ScopeController {
     public String testRequestByServletAPI(HttpServletRequest request) {
         request.setAttribute("testRequestScope", "hello, servletAPI");
         return "success";
+    }
+
+    @RequestMapping("/testModelAndView")
+    public ModelAndView testModelAndView() {
+        ModelAndView mav = new ModelAndView();
+        // 处理模型数据，即向请求域request共享数据
+        mav.addObject("testRequestScope", "hello, ModelAndView");
+        // 设置视图名称
+        mav.setViewName("success");
+        return mav;
     }
 }
