@@ -1,6 +1,7 @@
 package com.atguigu.mvc.controlller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -33,8 +34,10 @@ public class ParamController {
     // 若使用字符串类型的形参，最终结果为请求参数的每一个值之间使用逗号进行拼接
     public String testParam(@RequestParam(value = "user_name", required = false, defaultValue = "SpringBoot") String username,
                             String password,
-                            String[] hobby) {
+                            String[] hobby,
+                            @RequestHeader(value = "sayHaha", required = true, defaultValue = "haha") String host) {
         System.out.println("Controller param: username: " + username + ", password: " + password + ", hobby: " + Arrays.toString(hobby));
+        System.out.println("Host in header: " + host);
         return "success";
     }
 }
