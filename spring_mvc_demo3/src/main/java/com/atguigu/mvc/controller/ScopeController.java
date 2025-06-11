@@ -2,6 +2,7 @@ package com.atguigu.mvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -46,6 +47,12 @@ public class ScopeController {
     @RequestMapping("/testMap")
     public String testMap(Map<String,Object> map){
         map.put("testRequestScope","hello, Map");
+        return "success";
+    }
+
+    @RequestMapping("/testModelMap")
+    public String testModelMap(ModelMap modelMap){
+        modelMap.addAttribute("testRequestScope","hello, ModelMap");
         return "success";
     }
 }
