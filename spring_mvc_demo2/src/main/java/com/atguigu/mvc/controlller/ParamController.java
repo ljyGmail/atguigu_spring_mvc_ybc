@@ -1,11 +1,13 @@
 package com.atguigu.mvc.controlller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 
 /**
@@ -23,6 +25,7 @@ public class ParamController {
     @RequestMapping("/testServletAPI")
     // 形参位置的request表示当前请求
     public String testServletAPI(HttpServletRequest request) {
+        HttpSession session = request.getSession();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         System.out.println("username: " + username + ", password: " + password);
@@ -35,9 +38,11 @@ public class ParamController {
     public String testParam(@RequestParam(value = "user_name", required = false, defaultValue = "SpringBoot") String username,
                             String password,
                             String[] hobby,
-                            @RequestHeader(value = "sayHaha", required = true, defaultValue = "haha") String host) {
+                            @RequestHeader(value = "sayHaha", required = true, defaultValue = "haha") String host,
+                            @CookieValue("JSESSIONID") String jSessionId) {
         System.out.println("Controller param: username: " + username + ", password: " + password + ", hobby: " + Arrays.toString(hobby));
         System.out.println("Host in header: " + host);
+        System.out.println("JSESSIONID in Cookie: " + jSessionId);
         return "success";
     }
 }
