@@ -11,6 +11,7 @@
     <modules>
         <module>spring_mvc_demo1</module>
         <module>spring_mvc_demo2</module>
+        <module>spring_mvc_demo3</module>
     </modules>
 
     <properties>
