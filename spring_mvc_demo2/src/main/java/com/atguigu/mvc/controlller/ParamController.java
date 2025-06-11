@@ -1,5 +1,6 @@
 package com.atguigu.mvc.controlller;
 
+import com.atguigu.mvc.bean.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -43,6 +44,12 @@ public class ParamController {
         System.out.println("Controller param: username: " + username + ", password: " + password + ", hobby: " + Arrays.toString(hobby));
         System.out.println("Host in header: " + host);
         System.out.println("JSESSIONID in Cookie: " + jSessionId);
+        return "success";
+    }
+
+    @RequestMapping("/testPOJO")
+    public String testPOJO(User user) {
+        System.out.println(user);
         return "success";
     }
 }
