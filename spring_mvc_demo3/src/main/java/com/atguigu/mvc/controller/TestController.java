@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TestController {
 
+    /*
     @RequestMapping("/")
     public String index() {
         return "index";
@@ -24,4 +25,5 @@ public class TestController {
     public String testView() {
         return "test_view";
     }
+     */
 }
