@@ -12,6 +12,7 @@
         <module>spring_mvc_demo1</module>
         <module>spring_mvc_demo2</module>
         <module>spring_mvc_demo3</module>
+        <module>spring_mvc_demo4_jsp</module>
     </modules>
 
     <properties>
