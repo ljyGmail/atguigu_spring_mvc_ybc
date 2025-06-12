@@ -35,4 +35,11 @@ public class EmployeeController {
         employeeDao.save(employee);
         return "redirect:/employee";
     }
+
+    @RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
+    public String getEmployeeById(@PathVariable Integer id, Model model) {
+        Employee employee = employeeDao.get(id);
+        model.addAttribute("employee", employee);
+        return "employee_update";
+    }
 }
