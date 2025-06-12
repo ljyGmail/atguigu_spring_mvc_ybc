@@ -42,4 +42,10 @@ public class EmployeeController {
         model.addAttribute("employee", employee);
         return "employee_update";
     }
+
+    @RequestMapping(value = "/employee", method = RequestMethod.PUT)
+    public String updateEmployee(Employee employee) {
+        employeeDao.save(employee);
+        return "redirect:/employee";
+    }
 }
