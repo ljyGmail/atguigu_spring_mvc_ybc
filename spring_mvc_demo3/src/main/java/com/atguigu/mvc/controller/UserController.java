@@ -33,4 +33,10 @@ public class UserController {
         System.out.println("添加用户信息: " + username + ", " + password);
         return "success";
     }
+
+    @RequestMapping(value = "/user", method = RequestMethod.PUT)
+    public String updateUser(String username, String password) {
+        System.out.println("修改用户信息: " + username + ", " + password);
+        return "success";
+    }
 }
