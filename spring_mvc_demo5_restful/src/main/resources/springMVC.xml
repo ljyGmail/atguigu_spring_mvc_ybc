@@ -29,4 +29,10 @@
             </bean>
         </property>
     </bean>
+
+    <!-- 配置视图控制器 -->
+    <mvc:view-controller path="/" view-name="index"/>
+
+    <!-- 开启MVC注解驱动 -->
+    <mvc:annotation-driven/>
 </beans>
