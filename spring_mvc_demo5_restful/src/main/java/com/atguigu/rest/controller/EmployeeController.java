@@ -29,4 +29,10 @@ public class EmployeeController {
         employeeDao.delete(id);
         return "redirect:/employee";
     }
+
+    @RequestMapping(value = "/employee", method = RequestMethod.POST)
+    public String addEmployee(Employee employee) {
+        employeeDao.save(employee);
+        return "redirect:/employee";
+    }
 }
