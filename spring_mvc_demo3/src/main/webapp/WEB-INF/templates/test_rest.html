@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test REST</title>
+</head>
+<body>
+<h1>Test REST</h1>
+<a th:href="@{/user}">查询所有用户信息</a><br>
+<a th:href="@{/user/1}">根据id查询用户信息</a><br>
+<form th:action="@{/user}" method="post">
+    用户名: <input type="text" name="username"><br>
+    密码: <input type="password" name="password"><br>
+    <input type="submit" value="添加">
+</form>
+</body>
+</html>

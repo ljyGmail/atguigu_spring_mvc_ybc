@@ -32,6 +32,7 @@
 
     <mvc:view-controller path="/" view-name="index"/>
     <mvc:view-controller path="/test_view" view-name="test_view"/>
+    <mvc:view-controller path="/test_rest" view-name="test_rest"/>
 
     <!-- 开启MVC的注解驱动 -->
     <!-- 当SpringMVC中设置任何一个view-controller时，其他控制器中的请求映射将全部失效，
