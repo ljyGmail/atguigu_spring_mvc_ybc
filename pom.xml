@@ -13,6 +13,7 @@
         <module>spring_mvc_demo2</module>
         <module>spring_mvc_demo3</module>
         <module>spring_mvc_demo4_jsp</module>
+        <module>spring_mvc_demo5_restful</module>
     </modules>
 
     <properties>
