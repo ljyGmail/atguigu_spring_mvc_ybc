@@ -33,6 +33,9 @@
     <!-- 配置视图控制器 -->
     <mvc:view-controller path="/" view-name="index"/>
 
+    <!-- 开放对静态资源的访问 -->
+    <mvc:default-servlet-handler/>
+
     <!-- 开启MVC注解驱动 -->
     <mvc:annotation-driven/>
 </beans>
