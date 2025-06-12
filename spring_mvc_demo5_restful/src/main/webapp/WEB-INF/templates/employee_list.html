@@ -36,11 +36,15 @@
         <td th:text="${employee.email}"></td>
         <td th:text="${employee.gender}"></td>
         <td>
-            <a href="">delete</a>
+            <a th:href="@{'/employee/'+${employee.id}}">delete</a>
             <a href="">update</a>
         </td>
     </tr>
     </tbody>
 </table>
+
+<form method="post">
+    <input type="hidden" name="_method" value="delete">
+</form>
 </body>
 </html>
