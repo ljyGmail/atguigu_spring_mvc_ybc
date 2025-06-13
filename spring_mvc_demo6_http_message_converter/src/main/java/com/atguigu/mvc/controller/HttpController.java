@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 /**
  * ClassName: HttpController
  * Package: com.atguigu.mvc.controller
@@ -29,5 +32,10 @@ public class HttpController {
         System.out.println("请求头: " + requestEntity.getHeaders());
         System.out.println("请求体: " + requestEntity.getBody());
         return "success";
+    }
+
+    @RequestMapping("/testResponse")
+    public void testResponse(HttpServletResponse response) throws IOException {
+        response.getWriter().println("hello, response");
     }
 }
