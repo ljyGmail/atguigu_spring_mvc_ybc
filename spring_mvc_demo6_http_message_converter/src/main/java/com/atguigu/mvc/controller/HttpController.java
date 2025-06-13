@@ -4,6 +4,7 @@ import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -37,5 +38,11 @@ public class HttpController {
     @RequestMapping("/testResponse")
     public void testResponse(HttpServletResponse response) throws IOException {
         response.getWriter().println("hello, response");
+    }
+
+    @RequestMapping("/testResponseBody")
+    @ResponseBody
+    public String testResponseBody() {
+        return "success";
     }
 }
