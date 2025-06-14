@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -51,4 +52,9 @@ public class FileUpAndDownController {
         return responseEntity;
     }
 
+    @RequestMapping("/testUp")
+    public String testUp(MultipartFile photo) {
+        String fileName = photo.getOriginalFilename();
+        return "success";
+    }
 }
