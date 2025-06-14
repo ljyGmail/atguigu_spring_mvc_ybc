@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,8 +54,18 @@ public class FileUpAndDownController {
     }
 
     @RequestMapping("/testUp")
-    public String testUp(MultipartFile photo) {
+    public String testUp(MultipartFile photo, HttpSession session) throws IOException {
         String fileName = photo.getOriginalFilename();
+        ServletContext servletContext = session.getServletContext();
+        String photoPath = servletContext.getRealPath("photo");
+        File dir = new File(photoPath);
+        // 判断photoPath所对应的路径是否存在
+        if (!dir.exists()) {
+            // 若不存在，则创建目录
+            dir.mkdir();
+        }
+        String finalPath = photoPath + File.separator + fileName;
+        photo.transferTo(new File(finalPath));
         return "success";
     }
 }
