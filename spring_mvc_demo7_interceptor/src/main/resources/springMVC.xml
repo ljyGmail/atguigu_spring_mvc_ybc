@@ -40,15 +40,19 @@
 
     <!-- 配置拦截器 -->
     <mvc:interceptors>
+        <ref bean="firstInterceptor"/>
+        <ref bean="secondInterceptor"/>
         <!-- 下面两张方式都是拦截所有请求 -->
         <!-- <bean class="com.atguigu.mvc.interceptors.FirstInterceptor"/> -->
         <!-- <ref bean="firstInterceptor"/> -->
         <!-- 下面这张配置方式可以通过ref或bean标签设置拦截器，通过mvc:mapping设置需要拦截的请求，
         通过mvc:exclude-mapping设置需要排除的请求，即不需要拦截的请求。 -->
+        <!--
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/"/>
             <ref bean="firstInterceptor"/>
         </mvc:interceptor>
+        -->
     </mvc:interceptors>
 </beans>
