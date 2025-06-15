@@ -15,6 +15,7 @@
         <module>spring_mvc_demo4_jsp</module>
         <module>spring_mvc_demo5_restful</module>
         <module>spring_mvc_demo6_http_message_converter</module>
+        <module>spring_mvc_demo7_interceptor</module>
     </modules>
 
     <properties>
