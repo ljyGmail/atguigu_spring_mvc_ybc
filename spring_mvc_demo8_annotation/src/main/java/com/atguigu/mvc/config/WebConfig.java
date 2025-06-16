@@ -1,12 +1,13 @@
 package com.atguigu.mvc.config;
 
+import com.atguigu.mvc.interceptor.TestInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
@@ -40,7 +41,27 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 @ComponentScan("com.atguigu.mvc.controller")
 // 5. mvc注解驱动
 @EnableWebMvc
-public class WebConfig {
+public class WebConfig implements WebMvcConfigurer {
+
+    // 4. default-servlet-handler
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
+
+    // 8. 拦截器
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        TestInterceptor testInterceptor = new TestInterceptor();
+        registry.addInterceptor(testInterceptor).addPathPatterns("/**");
+    }
+
+    // 3. view-controller
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/hello").setViewName("hello");
+    }
+
     // 2. 视图解析器
     //配置生成模板解析器
     @Bean
