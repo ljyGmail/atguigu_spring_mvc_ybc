@@ -37,7 +37,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 // 将当前类标识为一个配置类
 @Configuration
 // 1. 扫描组件
-@ComponentScan
+@ComponentScan("com.atguigu.mvc.controller")
 // 5. mvc注解驱动
 @EnableWebMvc
 public class WebConfig {
